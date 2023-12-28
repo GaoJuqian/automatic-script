@@ -66,7 +66,7 @@ function callPhone() {
     return new Promise((resolve, reject) => {
         try {
             // 点击指定用户
-            const callPhoneName = descContains("高啊啊啊").depth(12);
+            const callPhoneName = descContains("拨出联系人123").depth(12);
             callPhoneName.waitFor();
             const callPhoneName_w = callPhoneName.findOne();
             click(callPhoneName_w.bounds().left, callPhoneName_w.bounds().top, callPhoneName_w.bounds().right, callPhoneName_w.bounds().bottom);
@@ -128,8 +128,8 @@ function handlerSearchResult(searchResult){
     const text = searchResult.map((item) => item.contentDescription).join(',');
     console.log('handlerSearchResult', text);
     return new Promise((resolve, reject) => {
-        if (/(-)?(20(\.0{1,2})?|[2-9]\d|\d{3,})(\.)(\d{1,})?%/.test(text)) {
-            return reject('检测到百分比超过20%');
+        if (/(-)?(30(\.0{1,2})?|[3-9]\d|\d{3,})(\.)(\d{1,})?%/.test(text)) {
+            return reject('检测到百分比超过30%');
         } else {
             resolve();
         }
